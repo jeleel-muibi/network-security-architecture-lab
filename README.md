@@ -1,46 +1,128 @@
-# Secure Network Access Project
+This repository explores secure network architecture concepts that later informed the HybridOps platform.
 
-This repository contains the configuration for a secure network access project implemented using Cisco Packet Tracer.
+Platform overview → https://hybridops.tech/why  
+Documentation → https://docs.hybridops.tech
 
-## Project Overview
+---
 
-The project involves the configuration of a network with multiple VLANs, distributed switches, a wireless LAN controller (WLC), DHCP configuration, Layer 3 routing, and firewall configuration. The network is designed to provide secure access across different departments in an organization.
+# Secure Network Access Architecture Lab
 
-## Network Configuration
+Enterprise network security lab exploring segmented network design, access control, routing resilience and secure connectivity patterns.
 
-The network configuration involves setting up VLANs, trunk and access ports, EtherChannel, and inter-VLAN routing. The VLANs created include:
+The project models a multi-department organisational network using Cisco Packet Tracer to demonstrate how VLAN segmentation, routing policies and firewall controls can be combined to provide secure network access across distributed environments.
 
-- VLAN 10: Production
-- VLAN 20: Admin
-- VLAN 30: Finance
-- VLAN 40: WLAN
-- VLAN 50: Voice
+---
 
-Each VLAN is assigned to specific interfaces on the switches. EtherChannel is configured to provide link aggregation for increased bandwidth and redundancy.
+## Architecture Overview
 
-## DHCP Configuration
+The simulated network includes:
 
-DHCP pools are configured for each VLAN to provide dynamic IP address allocation. The DHCP configuration includes the network address, default router, and excluded addresses for each pool.
+• Departmental network segmentation using VLANs  
+• Distribution layer routing and gateway redundancy  
+• Secure external connectivity with firewall policies  
+• Wireless infrastructure integration  
+• Voice network segmentation for IP telephony
 
-## Layer 3 Configuration
+---
 
-The Layer 3 configuration involves setting up Hot Standby Router Protocol (HSRP) for redundancy and inter-VLAN routing on the distributed switches. OSPF is used as the dynamic routing protocol.
+## Network Segmentation
 
-## Firewall Configuration
+Departmental isolation is implemented through VLAN-based segmentation.
 
-The firewall configuration includes setting up NAT for the different VLANs and implementing access control lists (ACLs) to control traffic flow.
+Configured VLANs include:
 
-## Voice VLAN Configuration
+• VLAN 10 — Production  
+• VLAN 20 — Administration  
+• VLAN 30 — Finance  
+• VLAN 40 — Wireless LAN  
+• VLAN 50 — Voice services
 
-A Voice VLAN is configured for VoIP services. The configuration includes setting up a DHCP pool for the Voice VLAN and configuring ephone-dns for different extensions.
+Segmentation ensures that traffic between departments can be controlled and inspected through routing and firewall policies.
 
-Please refer to the configuration files in this repository for detailed configuration commands.
+---
 
-## License
+## Switching Architecture
 
-This project is free to use for conventional practices.
+The switching layer implements several enterprise switching patterns:
 
-## Disclaimer
+• Access and trunk port configuration  
+• VLAN segmentation across access switches  
+• EtherChannel link aggregation for redundancy and bandwidth  
+• Spanning Tree protections for loop prevention
 
-This project is for educational purposes only. Please use caution when implementing these configurations in a production environment.
+These mechanisms provide both scalability and resilience in the switching fabric.
 
+---
+
+## Routing Architecture
+
+Inter-VLAN routing and gateway redundancy are implemented at the distribution layer.
+
+Key capabilities include:
+
+• Layer 3 routing between departmental VLANs  
+• OSPF dynamic routing configuration  
+• HSRP gateway redundancy for high availability
+
+This design ensures network continuity even if a routing node becomes unavailable.
+
+---
+
+## DHCP and Address Management
+
+Dynamic IP allocation is provided through VLAN-specific DHCP pools.
+
+Each pool includes:
+
+• Network address allocation  
+• Default gateway configuration  
+• Reserved address exclusions
+
+This allows automated endpoint provisioning across segmented networks.
+
+---
+
+## Firewall and Traffic Control
+
+Network access is controlled through firewall and routing policies.
+
+Security mechanisms include:
+
+• Network Address Translation (NAT) for external connectivity  
+• Access Control Lists (ACLs) for traffic filtering  
+• Controlled inter-VLAN communication policies
+
+These controls demonstrate how segmented networks enforce security boundaries between departments.
+
+---
+
+## Voice Network
+
+A dedicated Voice VLAN supports IP telephony services.
+
+Features include:
+
+• Voice traffic segmentation  
+• DHCP configuration for IP phones  
+• Telephony service configuration and extension assignment
+
+Separating voice traffic improves both performance and security.
+
+---
+
+## Lab Environment
+
+The architecture is implemented using:
+
+• Cisco Packet Tracer simulation  
+• Multi-layer switching topology  
+• Segmented departmental networks  
+• Simulated WAN edge connectivity
+
+---
+
+## Project Context
+
+This project explores foundational concepts in secure enterprise network architecture including segmentation, routing resilience and access control.
+
+Many of the design principles explored here later informed networking and security patterns used within the HybridOps platform.
